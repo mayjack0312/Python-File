@@ -6,36 +6,42 @@ def findAllFile(base):
             yield f
 
 def main():
-    base = r'C:/Users/13552/Desktop/3月2号'
+    base = r''
     count=0
     num_name={
-    '1': '李蕊',
-    '2': '崇家畅',
-    '3': '张佳琪',
-    '4': '姜明伟',
-    '5': '李浩宇',
-    '6': '邵雨生',
-    '7': '安皓',
-    '8': '安硕',
-    '9': '蔡宇杰',
-    '10': '孙铱洋',
-    '11': '王一帆',
-    '12': '韩奉孝',
-    '13': '李宏扬',
-    '14': '杨佳一',
-    '15': '赵衍儒',
-    '16': '李铭杨',
-    '17': '李奕菲',
-    '18': '刘博文',
-    '19': '高非凡',
-    '20': '李冬',
-    '21': '任轩祺',
-    '22': '赵宏博',
-    '23': '谭博文',
-    '24': '王麒淞'
+    '01': '',
+    '02': '',
+    '03': '',
+    '04': '',
+    '05': '',
+    '06': '',
+    '07': '',
+    '08': '',
+    '09': '',
+    '10': '',
+    '11': '',
+    '12': '',
+    '13': '',
+    '14': '',
+    '15': '',
+    '16': '',
+    '17': '',
+    '18': '',
+    '19': '',
+    '20': '',
+    '21': '',
+    '22': '',
+    '23': '',
+    '24': ''
     }
     submit_list=[]
     submit_list2=[]
+    for i in findAllFile(base):
+        for a in num_name:
+            if i[0:2]==a:
+                submit_list.append(a+''+num_name[a])
+                submit_list2.append(a)
+                count += 1
     for key in list(num_name.keys()):
         for i in submit_list2:
             if key==i:
@@ -56,9 +62,9 @@ def main():
         col1.width = 256 * 38
         # 第一个是行，第二格式列 都是从0开始
         for i in range(0, len(list(num_name.keys()))):
-            sheet1.write(i, 0, list(num_name.values())[i])
+            sheet1.write(i, 0, list(num_name.values())[i])1
         # 保存文件
-        f.save(r"C:\Users\13552\Desktop\3月2号\名单.xls")
+        f.save(r"/名单.xls")
     else:
         print('取消生成')
 if __name__ == '__main__':
