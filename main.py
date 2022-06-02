@@ -1,12 +1,14 @@
 import os
 import xlwt
+import time
+
 def findAllFile(base):
     for root, ds, fs in os.walk(base):
         for f in fs:
             yield f
 
 def main():
-    base = r''
+    base = repr((os.getcwd())).strip('"\'')
     count=0
     num_name={
     '01': '',
@@ -53,7 +55,7 @@ def main():
     print('是否生成excel文件？1是2否')
     flag = input()
     if flag=='1':
-        print('生成完毕，请在桌面查看')
+        print('生成完毕，请在本程序同级目录查看')
         # 创建工作簿
         f = xlwt.Workbook()
         # 创建一个sheet
@@ -62,10 +64,11 @@ def main():
         col1.width = 256 * 38
         # 第一个是行，第二格式列 都是从0开始
         for i in range(0, len(list(num_name.keys()))):
-            sheet1.write(i, 0, list(num_name.values())[i])1
+            sheet1.write(i, 0, list(num_name.values())[i])
         # 保存文件
-        f.save(r"/名单.xls")
+        f.save('未交作业名单.xls')
     else:
         print('取消生成')
+        time.sleep(2)
 if __name__ == '__main__':
     main()
